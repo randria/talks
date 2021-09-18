@@ -1,7 +1,8 @@
 # Request your account creation and activate your access
 - To get an account, you must justify of a use of Grid'5000 for its intended purposes by accepting the [Grid'5000 usage policy](https://www.grid5000.fr/w/Grid5000:UsagePolicy) 
 - Read and follow steps on [how to get your first account on g5k](https://www.grid5000.fr/w/Grid5000:Get_an_account)
-- After acceptation of your submission by the G5K committee, you will receive by email a full detail of instructions on how to connect and begin using G5K platform with your credentials (`user_login` and `password`)
+- After acceptation of your submission by the G5K committee, you will receive an automatic email from <notifications@api.grid5000.fr> with a full detail of instructions on how to connect and begin using G5K platform with your credentials (`user_login` and `password`)
+  - You will be affected 
 - You can connect directly to your ssh session on the g5k frontal node
   ```bash
   $ ssh <user_login>@access.grid5000.fr
