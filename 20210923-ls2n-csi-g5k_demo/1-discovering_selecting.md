@@ -97,10 +97,19 @@ To avoid unanticipated termination of your jobs in case of errors (terminal clos
 To force end your "infinite" allocation before the deadline falls, you can kill your job with `oardel <job id>`
 
 
-### On
-  
+### Working with more than one node
+You will probably want to use more than one node on a given site. 
 
- -t allow_classic_ssh
+For instance, how to reserve 2 nodes in an interactive mode ?
+
+```bash
+oarsub -l node=2 -I  -t allow_classic_ssh
+```
+
+You will obtain a shell on the first node of the reservation. It is up to you to connect to the other nodes and distribute work among them. 
+
+By default, you can only connect to nodes that are part of your reservation, and only using the oarsh connector to go from one node to the other. The connector supports the same options as the classical ssh command, so it can be used as a replacement for software expecting ssh. 
+
   
 
 
