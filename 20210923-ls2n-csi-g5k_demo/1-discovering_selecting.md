@@ -46,13 +46,34 @@ Additionally, it gives also the list of current or future downtimes due to maint
 ```
 
 ### On the wiki
-Site pages on the wiki (e.g. [Nantes:Home](https://www.grid5000.fr/w/Nantes:Home)) contain a detailed description of the site's hardware and network. Check out [here](https://www.grid5000.fr/w/Getting_Started#Discovering_and_visualizing_resources)
+Site pages on the wiki (e.g. [Nantes:Home](https://www.grid5000.fr/w/Nantes:Home)) contain a detailed description of the site's hardware and network.
 
 ### On the status page
 The page information links to the resource status on each site, with two different visualizations available:
-- the current status of nodes (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/monika.cgi)) (Monika)
-- the current and planned resources reservations in a Gantt diagram (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/drawgantt-svg/)) 
+- the current placement and queued jobs status (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/monika.cgi)) **in LIVE**
+- the current and planned resources reservations in a Gantt diagram history (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/drawgantt-svg/)) 
 
+## Allocating and accessing resources with OAR
+
+OAR is the **resources and jobs management system** (a.k.a batch manager) used in Grid'5000, just like in traditional HPC centers (commonly with SLURM, PBS, etc.). However, settings and rules of OAR that are configured in Grid'5000 slightly differ from traditional batch manager setups in HPC centers, in order to match the requirements for an experimentation testbed and **not for production use**! 
+
+In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu core)**, but by default a OAR job reserves a host (physical computer including all its cpus and cores, and possibly gpus). Hence, what OAR calls nodes are hosts (physical machines). In the `oarsub` resource request (`-l` arguments), nodes is an alias for host, so both are equivalent. But prefer using host for consistency with other argumnents and other tools that expose host not nodes. 
+
+### Interactive usage
+
+- To reserve a single host (one node) for one hour, in interactive mode, just do:
+  ```bash
+  oarsub -I -q besteffort
+  #...
+  # Connect to OAR job 223392 via the node econome-20.nantes.grid5000.fr
+  ```
+  As soon as the resource becomes available, you will be directly connected to the reserved resource with an interactive shell, as indicated by the shell prompt, and you can run commands on the node: `lscpu` or on the web with [Gantt diagram / Monika](https://www.grid5000.fr/w/Status#Resources_reservations_.28OAR.29_status).
+
+Reserving only part of a node
+
+To reserve only one CPU core in interactive mode, run:
+Terminal.png 	fnancy: 	
+oarsub -l core=1 -I
 
 oarsub -l host=1 -I
 
