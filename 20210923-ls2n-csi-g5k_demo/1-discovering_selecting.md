@@ -65,23 +65,18 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 
 - To reserve a single host (one node) for one hour, in an interactive mode (`-I` option), just do:
   ```bash
-  # site
   oarsub -I -q besteffort
-  # ...
-  # Connect to OAR job 223392 via the node econome-20.nantes.grid5000.fr
   ```
   As soon as the resource becomes available, you will be directly connected to the reserved resource with an interactive shell, as indicated by the shell prompt, and you can run commands on the node: `lscpu` or on the web with [Gantt diagram / Monika](https://www.grid5000.fr/w/Status#Resources_reservations_.28OAR.29_status).
 
 - To reserve only part of a node. For e.g. only 2 CPU cores for `2 minutes` on the same host, run:
   ```bash
-  # site 
   oarsub -q besteffort -l host=1/core=2,walltime=00:02:00 -I
   ```
   
 - To reserve on a specific cluster use `-p` option. On Nantes site, we have 2 clusters `econome` and `ecotype`.
 - To reserve a specific device, like a GPU. Available only on sites like Lyon, Lille, Grenble and Nancy. Here we reserve 1 GPU:
   ```bash
-  # site
   oarsub -l gpu=1 -I
   ```
   
@@ -92,12 +87,10 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 To avoid unanticipated termination of your jobs in case of errors (terminal closed by mistake, network disconnection), you can either use tools such as `tmux` or `screen`, or you can also do it in 2 steps by using the job id associated to your reservation :
 - reserve a node and run a process that does not end; here a linux `sleep` in an infinity loop. And of course do not use the option `-I`.
   ```bash
-  # site
   oarsub "sleep infinity"
   ```
 - connect to the node allocated with the job id
   ```bash
-  # site
   oarsub -C <job id>
   ```
 
@@ -110,7 +103,6 @@ You will probably want to use more than one node on a given site.
 For instance, how to reserve 2 nodes in an interactive mode ?
 
 ```bash
-# site
 oarsub -l host=2 -I  [ -t allow_classic_ssh ]
 ```
 
@@ -148,12 +140,14 @@ oarsub -l host=1/gpu=1 -I -t exotic
 ### Job submission
 
 ```bash
-$ cat myjob.sh
+cat<<EOF>$HOME/myjob.sh
 #!/bin/zsh
 #OAR -l host=1/core=1,walltime=00:05:00
 #OAR -p cluster='econome'
 hostname
-$ oarsub -S $HOME/myjob.sh
+EOF
+read
+oarsub -S $HOME/myjob.sh
 ```
 
 ### Docker and Singularity
