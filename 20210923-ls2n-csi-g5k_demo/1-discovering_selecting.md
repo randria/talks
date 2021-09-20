@@ -32,8 +32,8 @@ Welcome to Grid'5000
 
 See https://www.grid5000.fr/w/Getting_Started for more information.
 ```
-### Service or issues information
-You will see them at the end of the MOTD display. Something like below this for example:
+
+Additionally, it gives also the list of current or future downtimes due to maintenance, which is also available from at https://www.grid5000.fr/status/ .
 
 ```
 ** Warning: 1 event in progress
