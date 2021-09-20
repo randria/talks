@@ -150,5 +150,12 @@ hostname
 $ oarsub -S $HOME/myjob.sh
 ```
 
+### Docker
+
+
+```bash
+frontend% oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://godlovedc/lolcow echo "hello, hello!"
+```
+
 
 kaenv3 -l
