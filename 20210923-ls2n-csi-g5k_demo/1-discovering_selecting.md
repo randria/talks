@@ -65,6 +65,7 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 
 - To reserve a single host (one node) for one hour, in an interactive mode (`-I` option), just do:
   ```bash
+  # site
   oarsub -I -q besteffort
   # ...
   # Connect to OAR job 223392 via the node econome-20.nantes.grid5000.fr
@@ -73,12 +74,14 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 
 - To reserve only part of a node. For e.g. only 2 CPU cores for `2 minutes` on the same host, run:
   ```bash
+  # site 
   oarsub -q besteffort -l host=1/core=2,walltime=00:02:00 -I
   ```
   
 - To reserve on a specific cluster use `-p` option. On Nantes site, we have 2 clusters `econome` and `ecotype`.
 - To reserve a specific device, like a GPU. Available only on sites like Lyon, Lille, Grenble and Nancy. Here we reserve 1 GPU:
   ```bash
+  # site
   oarsub -l gpu=1 -I
   ```
   
@@ -89,10 +92,12 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 To avoid unanticipated termination of your jobs in case of errors (terminal closed by mistake, network disconnection), you can either use tools such as `tmux` or `screen`, or you can also do it in 2 steps by using the job id associated to your reservation :
 - reserve a node and run a process that does not end; here a linux `sleep` in an infinity loop. And of course do not use the option `-I`.
   ```bash
+  # site
   oarsub "sleep infinity"
   ```
 - connect to the node allocated with the job id
   ```bash
+  # site
   oarsub -C <job id>
   ```
 
@@ -105,6 +110,7 @@ You will probably want to use more than one node on a given site.
 For instance, how to reserve 2 nodes in an interactive mode ?
 
 ```bash
+# site
 oarsub -l host=2 -I  [ -t allow_classic_ssh ]
 ```
 
@@ -120,23 +126,30 @@ By default, you can only connect to nodes that are part of your reservation, and
 
 So far, all examples were letting OAR decide which resource to allocate to a job. It is possible to obtain finer-grained control on the allocated resources by using filters. 
 
-```basg
-<login>@flyon ~ % oarsub -l host=1/gpu=1 -I -t exotic  
+```bash
+# site @lyon
+oarsub -l host=1/gpu=1 -I -t exotic  
 ```
 
 ### Using OAR properties
 
 - Nodes with Infiniband FDR interfaces:
   ```bash 
-  @fnancy% oarsub -p "ib='FDR'" -l host=5,walltime=00:02:00 -I -q besteffort
+  # site @nancy
+  ssh nancy
+  oarsub -p "ib='FDR'" -l host=5,walltime=00:02:00 -I -q besteffort
   ```
 - Nodes with 2 GPUs:
   ```bash
-  @flille% oarsub -p "gpu_count = 2" -l host=3,walltime=2 -I
+  # site @lille
+  ssh lille
+  oarsub -p "gpu_count = 2" -l host=3,walltime=2 -I
   ```
 - Nodes with a specific CPU model:
   ```bash
-  @flille% oarsub -p "cputype = 'Intel Xeon E5-2630 v4'" -l host=3,walltime=2 -I  
+  # site @lille
+  ssh lille
+  oarsub -p "cputype = 'Intel Xeon E5-2630 v4'" -l host=3,walltime=2 -I  
   ```
   
 ### Job submission
