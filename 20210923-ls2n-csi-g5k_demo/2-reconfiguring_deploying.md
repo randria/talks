@@ -16,11 +16,15 @@ oarsub -I -l host=1,walltime=00:10:00 -t deploy
 
 ### Find your image
 
+You can also list all available environment in a site by using the following command line:
 ```
 kaenv3 -l
-# ...
-# ubuntu1804-x64-min    2021090715 deploy      ubuntu 18.04 (bionic) for x64 - min
-# ...
+```
+
+```bash
+...
+ubuntu1804-x64-min    2021090715 deploy      ubuntu 18.04 (bionic) for x64 - min
+...
 ```
 
 Select the one you want to deploy, copy the first column.
