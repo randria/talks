@@ -1,5 +1,6 @@
+# Discovering, visualizing and reserving Grid'5000 resources
 
-## Banner information on connection
+## Official Banner information on SSH connection
 
 ```bash
 Welcome to Grid'5000
@@ -30,42 +31,6 @@ Welcome to Grid'5000
 See https://www.grid5000.fr/w/Getting_Started for more information.
 ```
 
-# SSH
-
-## SSH Key Pair
-
-If you do not have one, you should create locally on your machine with the following command:
-```bash
-$ ssh-keygen
-$ cat ~/.ssh/id_rsa.pub
-```
-
-## SSH Config File
-Append these lines in your `~/.ssh/config` SSH file configuration by replacing `<g5k_userid>` with the real value and `<ssh_private_key>` the name of your SSH private key associated to the public key given when you requested a [g5k account creation](https://www.grid5000.fr/w/Grid5000:Get_an_account).
-```bash
-# .ssh/config
-Host g5k
-    User <g5k_userid>
-    Hostname access.grid5000.fr
-    IdentityFile ~/.ssh/<ssh_private_key>
-    ForwardAgent no
-
-Host *.g5k
-    User <g5k_userid>
-    IdentityFile ~/.ssh/<ssh_private_key>
-    ProxyCommand ssh g5k -W "$(basename %h .g5k):%p"
-    ForwardAgent no
-```
-
-# Connect to the g5k frontal
-
-- if you connect with the SSH configuration file set, you can type
-- if you do not know the site you want to connect on, just type:
-```bash
-ssh g5k
-```
-
-otherwise, 
 
 oarsub -l host=1 -I
 
