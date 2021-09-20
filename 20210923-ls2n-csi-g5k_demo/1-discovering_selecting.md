@@ -136,19 +136,16 @@ oarsub -l host=1/gpu=1 -I -t exotic
 - Nodes with Infiniband FDR interfaces:
   ```bash 
   # site @nancy
-  ssh nancy
   oarsub -p "ib='FDR'" -l host=5,walltime=00:02:00 -I -q besteffort
   ```
 - Nodes with 2 GPUs:
   ```bash
   # site @lille
-  ssh lille
   oarsub -p "gpu_count = 2" -l host=3,walltime=2 -I
   ```
 - Nodes with a specific CPU model:
   ```bash
   # site @lille
-  ssh lille
   oarsub -p "cputype = 'Intel Xeon E5-2630 v4'" -l host=3,walltime=2 -I  
   ```
   
@@ -167,8 +164,10 @@ $ oarsub -S $HOME/myjob.sh
 
 ```bash
 oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://godlovedc/lolcow echo "hello, hello!"
+```
+
+- run `gentoo` in a docker image
+```bash
 oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://gentoo/stage3-amd64 cat /etc/gentoo-release"
 ```
 
-
-kaenv3 -l
