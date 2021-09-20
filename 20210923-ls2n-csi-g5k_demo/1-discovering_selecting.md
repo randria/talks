@@ -150,11 +150,11 @@ hostname
 $ oarsub -S $HOME/myjob.sh
 ```
 
-### Docker
-
+### Docker and Singularity
 
 ```bash
-frontend% oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://godlovedc/lolcow echo "hello, hello!"
+oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://godlovedc/lolcow echo "hello, hello!"
+oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://gentoo/stage3-amd64 cat /etc/gentoo-release"
 ```
 
 
