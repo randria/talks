@@ -59,6 +59,8 @@ OAR is the **resources and jobs management system** (a.k.a batch manager) used i
 
 In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu core)**, but by default a OAR job reserves a host (physical computer including all its cpus and cores, and possibly gpus). Hence, what OAR calls nodes are hosts (physical machines). In the `oarsub` resource request (`-l` arguments), nodes is an alias for host, so both are equivalent. But prefer using host for consistency with other argumnents and other tools that expose host not nodes. 
 
+[OAR Documentation here](http://oar.imag.fr/documentation)
+
 ### Interactive usage
 
 - To reserve a single host (one node) for one hour, in interactive mode, just do:
@@ -73,6 +75,10 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
   ```bash
   oarsub -q besteffort -l host=1/core=2,walltime=00:02:00 -I
   ```
+  
+- To reserve on a specific cluster use `-p` option. On Nantes site, we have 2 clusters `econome` and `ecotype`.
+
+**Before the walltime ends, if you logout from your active session in this mode your reservation will be ended immediately**
 
 oarsub -l host=1 -I
 
