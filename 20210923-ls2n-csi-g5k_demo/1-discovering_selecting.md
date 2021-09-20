@@ -110,7 +110,7 @@ oarsub -l host=2 -I  -t allow_classic_ssh
 
 You will obtain a shell on the first node of the reservation. It is up to you to connect to the other nodes and distribute work among them. 
 
-By default, you can only connect to nodes that are part of your reservation, and only using the oarsh connector to go from one node to the other. The connector supports the same options as the classical ssh command, so it can be used as a replacement for software expecting ssh. 
+By default, you can only connect to nodes that are part of your reservation, and only using the `oarsh` connector to go from one node to the other. The connector supports the same options as the classical ssh command, with the option `-t allow_classic_ssh`, so it can be used as a replacement for software expecting ssh.
 
   
 kaenv3 -l
