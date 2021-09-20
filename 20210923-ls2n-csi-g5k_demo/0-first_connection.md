@@ -1,4 +1,4 @@
-## Connecting for the first time on G5K
+# Connecting for the first time on G5K
 
 The primary way to move around Grid'5000 is using SSH. A [reference page on SSH](https://www.grid5000.fr/w/SSH) is updated and maintained with advanced configuration options that frequent users will find useful.
 
@@ -9,4 +9,32 @@ As described in the figure above, when using Grid'5000, you will typically:
 - connect from this access machine to a site frontend
 - on this site frontend, reserve resources (nodes), and connect to those nodes
 
-### Connection by SSH
+## Connection by SSH
+
+### SSH connection through a web interface
+
+If you want an out-of-the-box solution which does not require you to setup SSH, you can connect through a web interface. The interface is available at https://intranet.grid5000.fr/shell/SITE/. 
+
+For example, to access nantes's site, use: https://intranet.grid5000.fr/shell/nantes/ (DO NOT FORGET THE '/' caracter at the end). To connect you will have to type in your credentials twice (first for the HTTP proxy, then for the SSH connection).
+
+### Connecting to a Grid'5000 frontal access machine
+
+To enter the Grid'5000 network from Internet, one must use an access machine: `access.grid5000.fr` . For all connections, you must use the login that was provided to you when you created your Grid'5000 account.
+
+```bash
+outside: ssh <login>@access.grid5000.fr
+```
+
+You will get authenticated using the SSH public key you provided in the account creation form. Password authentication is disabled.
+
+You can modify your SSH keys in the [account management interface](https://api.grid5000.fr/stable/users/).
+
+### Connecting to a Grid'5000 site access machine
+
+Grid'5000 is structured in sites (Grenoble, Rennes, Nancy, Nantes ...). Each site hosts one or more clusters (homogeneous sets of machines, usually bought at the same time). As you can see below:
+
+![g5k sites](https://www.grid5000.fr/mediawiki/images/Renater5-g5k.jpg)
+
+To connect to a particular site, do the following (blue and red arrow labeled SSH in the figure above).
+Terminal.png 	access: 	
+ssh site
