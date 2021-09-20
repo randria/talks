@@ -82,6 +82,8 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
   oarsub -l gpu=1 -I
   ```
   
+**Before the walltime ends, if you logout from your active session in this mode your reservation will be ended immediately**
+
 ### Batch command
 
 To avoid unanticipated termination of your jobs in case of errors (terminal closed by mistake, network disconnection), you can either use tools such as `tmux` or `screen`, or you can also do it in 2 steps by using the job id associated to your reservation :
@@ -103,7 +105,7 @@ You will probably want to use more than one node on a given site.
 For instance, how to reserve 2 nodes in an interactive mode ?
 
 ```bash
-oarsub -l node=2 -I  -t allow_classic_ssh
+oarsub -l host=2 -I  -t allow_classic_ssh
 ```
 
 You will obtain a shell on the first node of the reservation. It is up to you to connect to the other nodes and distribute work among them. 
@@ -111,10 +113,4 @@ You will obtain a shell on the first node of the reservation. It is up to you to
 By default, you can only connect to nodes that are part of your reservation, and only using the oarsh connector to go from one node to the other. The connector supports the same options as the classical ssh command, so it can be used as a replacement for software expecting ssh. 
 
   
-
-
-**Before the walltime ends, if you logout from your active session in this mode your reservation will be ended immediately**
-
-oarsub -l host=1 -I
-
 kaenv3 -l
