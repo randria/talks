@@ -35,6 +35,8 @@ Grid'5000 is structured in sites (Grenoble, Rennes, Nancy, Nantes ...). Each sit
 
 ![g5k sites](https://www.grid5000.fr/mediawiki/images/Renater5-g5k.jpg)
 
-To connect to a particular site, do the following (blue and red arrow labeled SSH in the figure above).
-Terminal.png 	access: 	
-ssh site
+To connect to a particular site, you just do the following SSH connection.
+
+```bash
+access-north% ssh <site>
+```
