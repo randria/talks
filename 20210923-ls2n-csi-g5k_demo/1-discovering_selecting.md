@@ -105,7 +105,7 @@ You will probably want to use more than one node on a given site.
 For instance, how to reserve 2 nodes in an interactive mode ?
 
 ```bash
-oarsub -l host=2 -I  -t allow_classic_ssh
+oarsub -l host=2 -I  [ -t allow_classic_ssh ]
 ```
 
 You will obtain a shell on the first node of the reservation. It is up to you to connect to the other nodes and distribute work among them. To list the nodes allocated use the variable `$OAR_FILE_NODES`.
@@ -116,5 +116,12 @@ uniq $OAR_FILE_NODES
 
 By default, you can only connect to nodes that are part of your reservation, and only using the `oarsh` connector to go from one node to the other. The connector supports the same options as the classical ssh command, with the option `-t allow_classic_ssh`, so it can be used as a replacement for software expecting ssh.
 
-  
+### Requesting specific nodes or clusters
+
+So far, all examples were letting OAR decide which resource to allocate to a job. It is possible to obtain finer-grained control on the allocated resources by using filters. 
+
+```basg
+<login>@flyon ~ % oarsub -l host=1/gpu=1 -I -t exotic  
+```
+
 kaenv3 -l
