@@ -2,7 +2,11 @@
 
 At this point, you should now be connected to a site frontend, as indicated by your shell prompt (`<login>@f<site>: ~ %`). This machine will **ONLY** be used to reserve and manipulate resources on this site, using the *OAR software suite* will be the only way to request resources before using them. 
 
-## Site's MOTD (message of the day) on SSH connection
+## Discovering and visualizing
+There are several ways to learn about the site's resources and their status:
+
+### On SSH connection
+The site's MOTD (message of the day) lists all clusters and their features. 
 
 ```bash
 Welcome to Grid'5000
@@ -40,6 +44,14 @@ Additionally, it gives also the list of current or future downtimes due to maint
 --> #Incident at #Nantes from 2021-09-03@16:30 : air conditioning failure, ecotype nodes unavailable
     https://intranet.grid5000.fr/bugzilla/show_bug.cgi?id=13386
 ```
+
+### On the wiki
+Site pages on the wiki (e.g. [Nantes:Home](https://www.grid5000.fr/w/Nantes:Home)) contain a detailed description of the site's hardware and network. Check out [here](https://www.grid5000.fr/w/Getting_Started#Discovering_and_visualizing_resources)
+
+### On the status page
+The page information links to the resource status on each site, with two different visualizations available:
+- Monika, that provides the current status of nodes (see Nancy's current status)
+        Gantt, that provides current and planned resources reservations (see Nancy's current status; example in the figure below).
 
 
 
