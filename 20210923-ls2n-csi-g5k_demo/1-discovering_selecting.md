@@ -76,3 +76,5 @@ ssh g5k
 otherwise, 
 
 oarsub -l host=1 -I
+
+kaenv3 -l
