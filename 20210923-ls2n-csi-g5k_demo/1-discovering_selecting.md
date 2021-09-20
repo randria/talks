@@ -61,9 +61,9 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
 
 [OAR Documentation here](http://oar.imag.fr/documentation)
 
-### Interactive usage
+### Basic command in an interactive mode
 
-- To reserve a single host (one node) for one hour, in interactive mode, just do:
+- To reserve a single host (one node) for one hour, in an interactive mode (`-I` option), just do:
   ```bash
   oarsub -I -q besteffort
   # ...
@@ -77,6 +77,32 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
   ```
   
 - To reserve on a specific cluster use `-p` option. On Nantes site, we have 2 clusters `econome` and `ecotype`.
+- To reserve a specific device, like a GPU. Available only on sites like Lyon, Lille, Grenble and Nancy. Here we reserve 1 GPU:
+  ```bash
+  oarsub -l gpu=1 -I
+  ```
+  
+### Batch command
+
+To avoid unanticipated termination of your jobs in case of errors (terminal closed by mistake, network disconnection), you can either use tools such as `tmux` or `screen`, or you can also do it in 2 steps by using the job id associated to your reservation :
+- reserve a node and run a process that does not end; here a linux `sleep` in an infinity loop. And of course do not use the option `-I`.
+  ```bash
+  oarsub "sleep infinity"
+  ```
+- connect to the node allocated with the job id
+  ```bash
+  oarsub -C <job id>
+  ```
+
+To force end your "infinite" allocation before the deadline falls, you can kill your job with `oardel <job id>`
+
+
+### On
+  
+
+ -t allow_classic_ssh
+  
+
 
 **Before the walltime ends, if you logout from your active session in this mode your reservation will be ended immediately**
 
