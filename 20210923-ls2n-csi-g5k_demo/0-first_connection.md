@@ -22,7 +22,7 @@ For example, to access nantes's site, use: https://intranet.grid5000.fr/shell/na
 To enter the Grid'5000 network from Internet, one must use an access machine: `access.grid5000.fr` . For all connections, you must use the login that was provided to you when you created your Grid'5000 account.
 
 ```bash
-outside: ssh <login>@access.grid5000.fr
+outside% ssh <login>@access.grid5000.fr
 ```
 
 You will get authenticated using the SSH public key you provided in the account creation form. Password authentication is disabled.
@@ -31,7 +31,7 @@ You can modify your SSH keys in the [account management interface](https://api.g
 
 ### Connecting to a Grid'5000 site access machine
 
-Grid'5000 is structured in sites (Grenoble, Rennes, Nancy, Nantes ...). Each site hosts one or more clusters (homogeneous sets of machines, usually bought at the same time). As you can see below:
+Now you are connected inside one of the G5K frontal access node (`access-north` or `access-south`), you can now reach to one the Grid'5000 sites. As you know the G5k platform is structured into sites (Grenoble, Rennes, Nancy, Nantes ...). Each site hosts one or more clusters (homogeneous sets of machines, usually bought at the same time). As you can see below:
 
 ![g5k sites](https://www.grid5000.fr/mediawiki/images/Renater5-g5k.jpg)
 
