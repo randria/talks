@@ -20,7 +20,7 @@ oarsub -I -l host=1,walltime=00:10:00 -t deploy
 kaenv3 -l
 # ...
 # ubuntu1804-x64-min    2021090715 deploy      ubuntu 18.04 (bionic) for x64 - min
-#
+# ...
 ```
 
 Select the one you want to deploy, copy the first column.
