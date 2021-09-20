@@ -124,4 +124,15 @@ So far, all examples were letting OAR decide which resource to allocate to a job
 <login>@flyon ~ % oarsub -l host=1/gpu=1 -I -t exotic  
 ```
 
+### Job submission
+
+```bash
+$ cat myjob.sh
+#!/bin/zsh
+#OAR -l host=1/core=1,walltime=00:05:00
+#OAR -p cluster='econome'
+hostname
+$ oarsub -S $HOME/myjob.sh
+```
+
 kaenv3 -l
