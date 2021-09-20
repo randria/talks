@@ -40,3 +40,19 @@ To connect to a particular site, you just do the following SSH connection.
 ```bash
 access-north% ssh <site>
 ```
+#### Tips : ssh config file with proxycommand
+Configure SSH aliases using the `ProxyCommand` option. Using this, you can avoid the two-hops connection (access machine, then frontend) but establish connections directly to frontends. This requires using OpenSSH, which is the SSH software available on all GNU/Linux systems, MacOS, and also recent versions of Microsoft Windows.
+
+Add or append these following line in your `.ssh/config` (UNIX) or `\Program Files\Git\etc\ssh\ssh_config` (WINDOWS)
+```bash
+# .ssh/config
+Host g5k
+  User login
+  Hostname access.grid5000.fr
+  ForwardAgent no
+
+Host *.g5k
+  User login
+  ProxyCommand ssh g5k -W "$(basename %h .g5k):%p"
+  ForwardAgent no
+```
