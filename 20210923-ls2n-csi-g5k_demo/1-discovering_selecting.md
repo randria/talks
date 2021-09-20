@@ -124,6 +124,21 @@ So far, all examples were letting OAR decide which resource to allocate to a job
 <login>@flyon ~ % oarsub -l host=1/gpu=1 -I -t exotic  
 ```
 
+### Using OAR properties
+
+- Nodes with Infiniband FDR interfaces:
+  ```bash 
+  @fnancy% oarsub -p "ib='FDR'" -l host=5,walltime=00:02:00 -I -q besteffort
+  ```
+- Nodes with 2 GPUs:
+  ```bash
+  @flille% oarsub -p "gpu_count = 2" -l host=3,walltime=2 -I
+  ```
+- Nodes with a specific CPU model:
+  ```bash
+  @flille% oarsub -p "cputype = 'Intel Xeon E5-2630 v4'" -l host=3,walltime=2 -I  
+  ```
+  
 ### Job submission
 
 ```bash
@@ -134,5 +149,6 @@ $ cat myjob.sh
 hostname
 $ oarsub -S $HOME/myjob.sh
 ```
+
 
 kaenv3 -l
