@@ -51,7 +51,7 @@ Site pages on the wiki (e.g. [Nantes:Home](https://www.grid5000.fr/w/Nantes:Home
 ### On the status page
 The page information links to the resource status on each site, with two different visualizations available:
 - the current status of nodes (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/monika.cgi)) (Monika)
-- the current and planned resources reservations (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/drawgantt-svg/)
+- the current and planned resources reservations in a Gantt diagram (see [Nantes's current status](https://intranet.grid5000.fr/oar/Nantes/drawgantt-svg/)) 
 
 
 oarsub -l host=1 -I
