@@ -1,6 +1,8 @@
 # Discovering, visualizing and reserving Grid'5000 resources
 
-## Official Banner information on SSH connection
+At this point, you should now be connected to a site frontend, as indicated by your shell prompt (`<login>@f<site>: ~ %`). This machine will **ONLY** be used to reserve and manipulate resources on this site, using the *OAR software suite* will be the only way to request resources before using them. 
+
+## Site's MOTD (message of the day) on SSH connection
 
 ```bash
 Welcome to Grid'5000
@@ -30,6 +32,15 @@ Welcome to Grid'5000
 
 See https://www.grid5000.fr/w/Getting_Started for more information.
 ```
+### Service or issues information
+You will see them at the end of the MOTD display. Something like below this for example:
+
+```
+** Warning: 1 event in progress
+--> #Incident at #Nantes from 2021-09-03@16:30 : air conditioning failure, ecotype nodes unavailable
+    https://intranet.grid5000.fr/bugzilla/show_bug.cgi?id=13386
+```
+
 
 
 oarsub -l host=1 -I
