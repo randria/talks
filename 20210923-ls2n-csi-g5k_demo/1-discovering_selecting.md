@@ -146,7 +146,7 @@ cat<<EOF>$HOME/myjob.sh
 #OAR -p cluster='econome'
 hostname
 EOF
-read
+chmod +x $HOME/myjob.sh
 oarsub -S $HOME/myjob.sh
 ```
 
