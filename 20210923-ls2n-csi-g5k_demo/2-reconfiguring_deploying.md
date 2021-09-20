@@ -18,6 +18,9 @@ oarsub -I -l host=1,walltime=00:10:00 -t deploy
 
 ```
 kaenv3 -l
+# ...
+# ubuntu1804-x64-min    2021090715 deploy      ubuntu 18.04 (bionic) for x64 - min
+#
 ```
 
 Select the one you want to deploy, copy the first column.
@@ -27,4 +30,10 @@ We start here a deployment of the `ubuntu1804-x64-min` image on that node (this 
 
 ```bash
 kadeploy3 -f $OAR_NODE_FILE -e ubuntu1804-x64-min -k
+```
+
+### Connect to the new server
+
+```bash
+ssh root@<new-machine>
 ```
