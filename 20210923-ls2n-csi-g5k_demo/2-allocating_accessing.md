@@ -97,11 +97,15 @@ oarsub -S $HOME/myjob.sh
 
 ## Docker and Singularity
 
-```bash
-oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://godlovedc/lolcow echo "hello, hello!"
-```
-
-- run `gentoo` in a docker image
+- run with singularity a docker running a `busybox` linux
+  ```bash
+  oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://busybox uname -a"
+  ```
+- run a `lolcow`
+  ```bash
+  oarsub -l core=1 "/grid5000/code/bin/singularity run docker://godlovedc/lolcow"
+  ```
+- run a `gentoo` distro in a docker image
 ```bash
 oarsub -l core=1 "/grid5000/code/bin/singularity exec docker://gentoo/stage3-amd64 cat /etc/gentoo-release"
 ```
