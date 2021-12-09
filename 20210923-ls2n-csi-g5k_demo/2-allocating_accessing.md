@@ -18,7 +18,10 @@ In Grid'5000 the **smallest unit of resource managed by OAR is the core (cpu cor
   ```bash
   oarsub -q besteffort -l host=1/core=2,walltime=00:02:00 -I
   ```
-  
+
+  - stress pinned cores `stress --cpu`
+  - checkout with `htop -u ...`
+
 - To reserve on a specific cluster use `-p` option. On Nantes site, we have 2 clusters `econome` and `ecotype`.
 - To reserve a specific device, like a GPU. Available only on sites like Lyon, Lille, Grenble and Nancy. Here we reserve 1 GPU:
   ```bash
